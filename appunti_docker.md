@@ -7,7 +7,7 @@ Fonte: https://docs.docker.com/compose/rails/
 * verificare lentezza nello sviluppo
 
 
-## inzializzazione (TODO: valutare se essite un modo per installare direttamente da qui webpacker)
+## inzializzazione (TODO: valutare se esiste un modo per installare direttamente da qui webpacker)
 docker-compose run web rails new . --force --no-deps --database=postgresql
 
 ## fa la build (serve dopo modifiche a Gemfile o Dockerfile)
