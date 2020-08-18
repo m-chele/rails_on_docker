@@ -3,7 +3,10 @@
 *** WIP ***
 
 # Getting started
-* clone this project
-* `cd rails_on_docker`
+1. clone this project and `cd rails_on_docker`
+2. `docker-compose up` (now you have rails installed on a container called `web`)
+
+ 
+
 
 
