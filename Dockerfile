@@ -5,12 +5,10 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs po
 RUN mkdir /rails_on_docker
 WORKDIR /rails_on_docker
 COPY Gemfile /rails_on_docker/Gemfile
-COPY Gemfile.lock /rails_on_docker/Gemfile.lock
-COPY package.json /rails_on_docker/package.json
-COPY yarn.lock /rails_on_docker/yarn.lock
+RUN yarn install --check-files
 RUN gem install bundler -v '2.1.4'
 RUN bundle install
-RUN yarn install --check-files
+RUN rails new . -f -d=postgresql --webpacker=react
 COPY . /rails_on_docker
 EXPOSE 3000
 
