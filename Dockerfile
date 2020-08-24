@@ -10,6 +10,7 @@ RUN gem install bundler -v '2.1.4'
 RUN bundle install
 RUN yarn install --check-files
 COPY . /rails_on_docker
+
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
