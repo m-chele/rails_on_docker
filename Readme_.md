@@ -4,7 +4,8 @@
 
 ## Getting Rails ready
 1. clone this project and `cd rails_on_docker`
-2. `docker-compose up` (now you have rails installed and db created on a container called `web`)
+2. docker-compose run web rails new . --force --database=postgresql --webpacker=react
+2. [TODO: RIVEDERE]`docker-compose up` (now you have rails installed and db created on a container called `web`)
 
 ## Create Rails application with react
 1. `rails new <api-name> -d=postgresql --webpacker=react --api`
