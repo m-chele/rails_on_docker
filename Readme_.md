@@ -4,15 +4,19 @@
 
 ## Getting Rails ready
 1. clone this project and `cd rails_on_docker`
-2. docker-compose run web rails new . --force --database=postgresql --webpacker=react
-2. [TODO: RIVEDERE]`docker-compose up` (now you have rails installed and db created on a container called `web`)
+2. create a rails app using react: `docker-compose run web rails new . --force --database=postgresql --webpacker=react`
+3. prevent a warning with yarn: `docker-compose run web yarn install --check-files`
+4. build because of Gemfile changes (due to rails app creation): `docker-compose build`
+5. start the services: `docker-compose up`
+6. create the db: `docker-compose run web rake db:create`
+7. open browser on 'localhost:3000' to see the rails app
 
 ## Create Rails application with react
 1. `rails new <api-name> -d=postgresql --webpacker=react --api`
     *  e.g: rails new . -f -d=postgresql --webpacker=react
 2. WARNING!! change config/database.yml adding to `default`: 
    * ``host: db``
-   * ``username: dbuser``
+   * ``username: postgres``
    * ``password:``
 2. `rails db:create`
 3. `rails server -b 0.0.0.0`
