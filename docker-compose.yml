@@ -6,6 +6,8 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+    ports:
+        - "54333:5432"
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -13,5 +15,6 @@ services:
       - .:/rails_on_docker
     ports:
       - "3000:3000"
+      - "3035:3035"
     depends_on:
       - db

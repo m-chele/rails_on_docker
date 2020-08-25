@@ -17,14 +17,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # custom (https://docs.docker.com/compose/rails/)
-  host: db
-  username: dbuser
-  password:
-  # pool: 5
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  username: postgres
+  password: password
 
 development:
   <<: *default
@@ -87,4 +85,4 @@ production:
   <<: *default
   database: rails_on_docker_production
   username: rails_on_docker
-  password: <%= ENV['PROVE_RAILS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RAILS_ON_DOCKER_DATABASE_PASSWORD'] %>

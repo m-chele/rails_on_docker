@@ -6,6 +6,7 @@
 1. clone this project and `cd rails_on_docker`
 2. create a rails app using react: `docker-compose run web rails new . --force --database=postgresql --webpacker=react`
 3. prevent a warning with yarn: `docker-compose run web yarn install --check-files`
+     * ([TODO] non sono sicuro che serva perché lo fa già il Dockerfile)
 4. build because of Gemfile changes (due to rails app creation): `docker-compose build`
 5. start the services: `docker-compose up`
 6. create the db: `docker-compose run web rake db:create`
